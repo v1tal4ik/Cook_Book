@@ -5,26 +5,27 @@ import CookListItem from './CookListItem';
 import configureStore from 'redux-mock-store'
  
 
-const initialState = {}; 
-const mockStore = configureStore();
-let testCookListItem;
-let store;
-const props = {
-    name: 'test name',
-    date: '2016-09-09',
-    img: 'cookIcon/test.png',
-    description: 'test description',
-}
 
-beforeEach(() => {
-  store = mockStore(initialState)
-  testCookListItem = mount(<Provider store={store}> <CookListItem {...props}/> </ Provider>)
- });
 
 
 
 describe('CookListItem',()=>{
-
+    const initialState = {}; 
+    const mockStore = configureStore();
+    let testCookListItem;
+    let store;
+    const props = {
+        id:0,
+        name: 'test name',
+        date: '2016-09-09',
+        img: 'cookIcon/test.png',
+        description: 'test description',
+    }
+    
+    beforeAll(() => {
+      store = mockStore(initialState)
+      testCookListItem = mount(<Provider store={store}> <CookListItem {...props}/> </ Provider>)
+     });
     it('correct name render',()=>{
         expect(testCookListItem.find('#name').text()).toEqual('test name');
     });

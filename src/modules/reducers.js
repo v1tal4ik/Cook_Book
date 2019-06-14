@@ -28,7 +28,7 @@ export const typeSort = handleActions({
 
 export const viewValue = handleActions({
     [changeViewValue] : (_state,action)=>action.payload,
-},20);
+},8);
 
 export const cookList = handleActions({
     [fetchCookListRequest] : ()=>[],

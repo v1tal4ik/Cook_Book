@@ -3,6 +3,7 @@ import {
     fetchCookListRequest,
     fetchCookListSuccess,
     fetchCookListFailure,
+    fetchMoreCookListRequest,
     fetchCookListByInputValueRequest,
     fetchCookListByInputValueSuccess,
     fetchCookListByInputValueFailure
@@ -12,6 +13,7 @@ import {getCookList,getCookListByInputValue} from '../api';
 
 function* fetchReducersWatcher() {
   yield takeEvery(fetchCookListRequest, fetchCookListFlow);
+  yield takeEvery(fetchMoreCookListRequest, fetchCookListFlow);
   yield takeEvery(fetchCookListByInputValueRequest, fetchCookListByInputValueFlow);
 }
 

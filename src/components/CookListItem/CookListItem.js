@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import Rodal from 'rodal';
 import InfoModal from '../Modal/InfoModal';
 import EditModal from '../Modal/EditModal';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {fetchCookListRequest} from '../../modules/actions';
 import {getCookList,getTypeSort,getViewValue} from '../../modules/reducers';
@@ -77,10 +78,15 @@ class CookListItem extends Component{
     }
 }
 
+CookListItem.propTypes ={
+    id:PropTypes.number.isRequired,
+    name:PropTypes.string.isRequired,
+    date:PropTypes.string.isRequired,
+    img:PropTypes.string.isRequired,
+  };
+
 export default connect(state => ({
     cookList: getCookList(state),
     typeSort: getTypeSort(state),
     viewValue: getViewValue(state),
-}), {
-    fetchCookListRequest
-})(CookListItem);
+}), {fetchCookListRequest})(CookListItem);

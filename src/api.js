@@ -5,9 +5,17 @@ export const getCookList = ({viewValue,typeSort})=>{
     .then(result=>result.data)
     .catch(err=>[]);
  }
+ 
+ export const loadMoreCookList = ({viewValue,typeSort})=>(getCookList(viewValue,typeSort))
 
  export const getCookListByInputValue = ({inputValue,typeSort})=>{
    return axios.get(`/api/v1.0/cookList/item?inputValue=${inputValue}&typeSort=${typeSort}`)
+   .then(result=>result.data)
+   .catch(err=>[]);
+}
+
+export const getCookListCounter = ()=>{
+   return axios.get(`/api/v1.0/cookList/count`)
    .then(result=>result.data)
    .catch(err=>[]);
 }
@@ -49,3 +57,5 @@ export const getCookList = ({viewValue,typeSort})=>{
     .then((result)=>result.path)
     .catch(err=>"Sorry there was error :(");
  }
+
+ 

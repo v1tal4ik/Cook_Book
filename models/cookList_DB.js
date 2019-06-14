@@ -8,6 +8,10 @@ module.exports.getCookListByInputValue = (inputValue,typeSort) =>(
     cookList.find({name:{$regex: `${inputValue}`, $options:'i'}}).sort({date:(typeSort==='newest')?-1:1})
 );
 
+module.exports.getCookListCounter = () =>(
+    cookList.find({})
+);
+
 module.exports.addNewCookItem = (id,name,date,description,img) =>{
     const cookItem = new cookList({
         id,

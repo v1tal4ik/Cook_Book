@@ -5,7 +5,6 @@ import AddModal from '../Modal/AddModal';
 import { connect } from 'react-redux';
 import {
   changeSortType,
-  changeViewValue,
   fetchCookListRequest,
   fetchCookListByInputValueRequest
 } from '../../modules/actions';
@@ -27,23 +26,19 @@ handleOpenAddModal = () => this.setState({visible: true});
 handleChangeInput = (e) => this.setState({inputValue: e.target.value});
 
 handleChangeSortType = (typeSort) => {
-    const {viewValue,changeSortType,changeViewValue,fetchCookListRequest} = this.props;
-
+    const {viewValue,changeSortType,fetchCookListRequest} = this.props;
     changeSortType(typeSort);
-    changeViewValue(20);
     fetchCookListRequest({typeSort,viewValue});
 }
 
 callHandleChangeInput=()=>{
   const {fetchCookListByInputValueRequest,typeSort} = this.props;
-
   const {inputValue} = this.state;
   fetchCookListByInputValueRequest({inputValue,typeSort});
 }
 
   closeModalAdd=()=>{
   const {typeSort,viewValue,fetchCookListRequest} = this.props;
-
   fetchCookListRequest({typeSort,viewValue});
   this.setState({visible:false});
 }
@@ -89,7 +84,6 @@ export default connect(state=>({
   viewValue:getViewValue(state),
 }),{
   changeSortType,
-  changeViewValue,
   fetchCookListRequest,
   fetchCookListByInputValueRequest
 })(TopMenu);

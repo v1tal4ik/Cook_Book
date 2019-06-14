@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import PropTypes from 'prop-types';
 import {Select } from 'antd';
 import './antd-select.css';
 import './InfoModal.css';
@@ -49,5 +50,13 @@ class InfoModal extends Component {
     )
   }
 }
+
+
+InfoModal.propTypes ={
+  id:PropTypes.number.isRequired,
+  name:PropTypes.string.isRequired,
+  img:PropTypes.string.isRequired,
+  versions:PropTypes.array.isRequired,
+};
 
 export default InfoModal;
