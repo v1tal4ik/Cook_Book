@@ -19,6 +19,7 @@ class CookList extends Component {
     const {viewValue,typeSort,fetchCookListRequest} = this.props;
     fetchCookListRequest({viewValue,typeSort});
   }
+
   render(){
     const {isLoading,cookList} = this.props;
     return (
@@ -31,18 +32,20 @@ class CookList extends Component {
                 })
             }
         </div>
-        </>
+      </>
     )
   }
 }
 
-export default connect(state=>({
-  isLoading:getIsLoading(state),
-  typeSort:getTypeSort(state),
-  inputValue:getInputValue(state),
-  viewValue:getViewValue(state),
-  cookList:getCookList (state)
-}),{fetchCookListRequest})(CookList);
+export default connect(state => ({
+  isLoading: getIsLoading(state),
+  typeSort: getTypeSort(state),
+  inputValue: getInputValue(state),
+  viewValue: getViewValue(state),
+  cookList: getCookList(state)
+}), {
+  fetchCookListRequest
+})(CookList);
 
 
 

@@ -8,9 +8,9 @@ import './InfoModal.css';
 const Option = Select.Option;
 
 class InfoModal extends Component {
-    state={
-        description:'',
-        img:''
+    state = {
+        description: '',
+        img: ''
     }
     componentDidMount=()=>{
         const {description,img} = this.props;
@@ -19,12 +19,14 @@ class InfoModal extends Component {
     handleChangeDateVersion=(e)=>{
         const {versions,description,img} = this.props;
         this.setState({description:description,img:img});
+
         versions.forEach((el)=>{
             if(el.date===e){
                 this.setState({description:el.description,img:el.img});
             }
         });
     }
+    
   render(){
       const {id,name,date,versions} = this.props;
     return (

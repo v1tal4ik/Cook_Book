@@ -1,3 +1,4 @@
+import { combineReducers } from 'redux';
 import { handleActions } from 'redux-actions';
 import {
     fetchCookListRequest,
@@ -41,14 +42,18 @@ export const cookList = handleActions({
 
 
 
-
+export default combineReducers({
+    isLoading,
+    typeSort,
+    viewValue,
+    cookList
+});
 
 
 
 
 export const getIsLoading=(state)=>state.isLoading;
 export const getTypeSort=(state)=>state.typeSort;
-export const getInputValue=(state)=>state.inputValue;
 export const getViewValue=(state)=>state.viewValue;
 export const getCookList=(state)=>state.cookList;
 
